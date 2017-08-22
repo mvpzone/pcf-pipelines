@@ -19,6 +19,8 @@ DYNAMIC_SERVICES_SUBNET="${AZURE_TERRAFORM_PREFIX}-virtual-network/${AZURE_TERRA
 
 cp ${JSON_FILE_TEMPLATE} ${JSON_FILE}
 
+TRUSTED_CERT_RAW=$(jq -n --arg trusted_cert "$TRUSTED_CERTIFICATES" '{"trusted_cert": $trusted_cert}' | jq -r .trusted_cert)
+
 perl -pi -e "s|{{infra_subnet_iaas}}|${INFRASTRUCTURE_SUBNET}|g" ${JSON_FILE}
 perl -pi -e "s|{{infra_subnet_cidr}}|${AZURE_TERRAFORM_SUBNET_INFRA_CIDR}|g" ${JSON_FILE}
 perl -pi -e "s|{{infra_subnet_reserved}}|${AZURE_TERRAFORM_SUBNET_INFRA_RESERVED}|g" ${JSON_FILE}
@@ -39,8 +41,7 @@ perl -pi -e "s|{{dynamic_services_subnet_cidr}}|${AZURE_TERRAFORM_SUBNET_DYNAMIC
 perl -pi -e "s|{{dynamic_services_subnet_reserved}}|${AZURE_TERRAFORM_SUBNET_DYNAMIC_SERVICES_RESERVED}|g" ${JSON_FILE}
 perl -pi -e "s|{{dynamic_services_subnet_dns}}|${AZURE_TERRAFORM_SUBNET_DYNAMIC_SERVICES_DNS}|g" ${JSON_FILE}
 perl -pi -e "s|{{dynamic_services_subnet_gateway}}|${AZURE_TERRAFORM_SUBNET_DYNAMIC_SERVICES_GATEWAY}|g" ${JSON_FILE}
-
-
+perl -pi -e "s|{{trusted_certificates}}|${TRUSTED_CERT_RAW}|g" ${JSON_FILE}
 
 
 # Exec bash scripts to config Opsman Director Tile
