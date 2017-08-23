@@ -240,11 +240,6 @@ jobs:
     - get: pcf-pipelines
       trigger: true
       passed: [config-opsman-auth]
-    - get: pivnet-elastic-runtime
-      trigger: false
-      params:
-        globs:
-        - "*pivotal"
     - get: tool-om
       params:
         globs:
@@ -290,6 +285,7 @@ jobs:
         AZURE_TERRAFORM_SUBNET_DYNAMIC_SERVICES_GATEWAY: {{azure_terraform_subnet_dynamic_services_gateway}}
         PCF_SSH_KEY_PUB: {{pcf_ssh_key_pub}}
         PCF_SSH_KEY_PRIV: {{pcf_ssh_key_priv}}
+        TRUSTED_CERTIFICATES: {{trusted_certificates}}
 
 ###########################
 ## Job - Deploy-Director ##
@@ -383,11 +379,6 @@ jobs:
       passed: [upload-ert]
       trigger: true
     - get: terraform-state
-    - get: pivnet-elastic-runtime
-      trigger: false
-      params:
-        globs:
-        - "*pivotal"
     - get: tool-om
       params:
         globs:

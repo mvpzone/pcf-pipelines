@@ -8,6 +8,7 @@ function fn_config_director {
   "networks:file"
   "az_and_network_assignment:file"
   "resources:file"
+  "security_tokens:var"
   )
 
   for x in ${POSTS_DIRECTOR[@]}; do

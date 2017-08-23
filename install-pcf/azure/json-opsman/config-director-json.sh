@@ -80,6 +80,13 @@ if [[ ${PROVIDER_TYPE} == "azure" ]]; then
     \"iaas_configuration[ssh_public_key]\": \"${PCF_SSH_KEY_PUB}\",
     \"iaas_configuration[ssh_private_key]\": \"${PCF_SSH_KEY_PRIV}\"
   }")
+
+  TRUSTED_CERT_RAW=$(jq -n --arg trusted_cert "$TRUSTED_CERTIFICATES" '{"trusted_cert": $trusted_cert}' | jq -r .trusted_cert)
+
+  security_tokens_json=$(echo "{
+    \"security_tokens[trusted_certificates]\": \"${TRUSTED_CERT_RAW}\"
+  }")
+
 else
   echo "config-director-json_err: Provider Type ${PROVIDER_TYPE} not yet supported"
   exit 1
