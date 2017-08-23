@@ -19,7 +19,7 @@ DYNAMIC_SERVICES_SUBNET="${AZURE_TERRAFORM_PREFIX}-virtual-network/${AZURE_TERRA
 
 cp ${JSON_FILE_TEMPLATE} ${JSON_FILE}
 
-TRUSTED_CERT_RAW=$(jq -n --arg trusted_cert "$TRUSTED_CERTIFICATES" '{"trusted_cert": $trusted_cert}' | jq -r .trusted_cert)
+TRUSTED_CERT_RAW=$(jq -n --arg trusted_cert "$TRUSTED_CERTIFICATES" '{"trusted_cert": $trusted_cert}' | jq .trusted_cert)
 
 perl -pi -e "s|{{infra_subnet_iaas}}|${INFRASTRUCTURE_SUBNET}|g" ${JSON_FILE}
 perl -pi -e "s|{{infra_subnet_cidr}}|${AZURE_TERRAFORM_SUBNET_INFRA_CIDR}|g" ${JSON_FILE}

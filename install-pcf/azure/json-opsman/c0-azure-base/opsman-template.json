@@ -57,7 +57,7 @@
     "pipeline_extension": "fn_form_gen_az_and_network_assignment"
   },
   "security_tokens": {
-    "security_tokens[trusted_certificates]": "{{trusted_certificates}}"
+    "security_tokens[trusted_certificates]": {{trusted_certificates}}
   },
   "resources":{
     "product_resources_form[director][disk_type_id]": "",

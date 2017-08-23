@@ -81,10 +81,10 @@ if [[ ${PROVIDER_TYPE} == "azure" ]]; then
     \"iaas_configuration[ssh_private_key]\": \"${PCF_SSH_KEY_PRIV}\"
   }")
 
-  TRUSTED_CERT_RAW=$(jq -n --arg trusted_cert "$TRUSTED_CERTIFICATES" '{"trusted_cert": $trusted_cert}' | jq -r .trusted_cert)
+  TRUSTED_CERT_RAW=$(jq -n --arg trusted_cert "$TRUSTED_CERTIFICATES" '{"trusted_cert": $trusted_cert}' | jq .trusted_cert)
 
   security_tokens_json=$(echo "{
-    \"security_tokens[trusted_certificates]\": \"${TRUSTED_CERT_RAW}\"
+    \"security_tokens[trusted_certificates]\": ${TRUSTED_CERT_RAW}
   }")
 
 else
