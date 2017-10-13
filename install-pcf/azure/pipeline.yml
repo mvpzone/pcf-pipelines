@@ -321,7 +321,7 @@ jobs:
       resource: pivnet-elastic-runtime
       params:
         globs:
-        - "*pivotal"
+        - "cf*.pivotal"
 
   - task: upload-tile
     file: pcf-pipelines/tasks/upload-product-and-stemcell/task.yml
@@ -472,7 +472,7 @@ jobs:
       DIEGO_BRAIN_NSX_LB_POOL_NAME: ""
       DIEGO_BRAIN_NSX_LB_SECURITY_GROUP: ""
       DIEGO_BRAIN_NSX_LB_PORT: ""
-
+      HAPROXY_FLOATING_IPS: ""
 ###########################
 ## Job - Deploy    ERT   ##
 ###########################
