@@ -21,10 +21,12 @@ These pipelines are found in the `install-pcf` directory, sorted by IaaS.
 
 | IAAS | pipelines release | OM version | ERT version | 
 | :--- | --- | --- | --- |
-| vSphere | v0.18.0 | 1.12  | 1.12  |
-| Azure | v0.18.0 | 1.12 | 1.12  |
-| AWS | v0.18.0 | 1.12 | 1.12  |
-| GCP | v0.18.0 | 1.12  | 1.12  |
+| vSphere | v0.18.0 | 1.12.x  | 1.12.3  |
+| Azure | v0.18.0 | 1.12.x | 1.12.3  |
+| AWS | v0.18.0 | 1.12.x | 1.12.3  |
+| GCP | v0.18.0 | 1.12.x  | 1.12.3  |
+
+*Note: Latest known version of ERT tested against pcf-pipelines
  
 | IAAS | pipelines release | OM version | ERT version | 
 | :--- | --- | --- | --- |
@@ -187,6 +189,8 @@ For the `unpack-pcf-pipelines-combined` to work there must be a single manual tr
 ## Contributing
 
 ### Pipelines and Tasks
+
+For practicalities, please see our [Contributing](https://github.com/pivotal-cf/pcf-pipelines/blob/master/CONTRIBUTING.md) page for more information.
 
 The pipelines and tasks in this repo follow a simple pattern which must be adhered to:
 
