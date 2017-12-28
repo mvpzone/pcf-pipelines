@@ -25,8 +25,8 @@ resources:
 - name: pcf-pipelines
   type: git
   source:
-    uri: git@github.com:pivotal-cf/pcf-pipelines.git
-    branch: master
+    uri: git@github.com:mvpzone/pcf-pipelines.git
+    branch: v0.18.0-cirrus
     private_key: {{git_private_key}}
 
 - name: tile
