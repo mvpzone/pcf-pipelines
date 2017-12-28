@@ -24,7 +24,7 @@ resources:
   type: git
   source:
     uri: git@github.com:mvpzone/pcf-pipelines.git
-    branch: v0.18.0-cirrus
+    branch: v0.21.2-labs
     private_key: {{git_private_key}}
 
 - name: binary-buildpack
