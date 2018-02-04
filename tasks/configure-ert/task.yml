@@ -15,7 +15,9 @@ run:
 
 params:
   pcf_iaas:
-  pcf_ert_domain:
+  PCF_ERT_DOMAIN:
+  SYSTEM_DOMAIN:
+  APPS_DOMAIN:
   OPSMAN_CLIENT_ID:
   OPSMAN_CLIENT_SECRET:
   OPS_MGR_USR:
@@ -23,8 +25,6 @@ params:
   pcf_az_1:
   pcf_az_2:
   pcf_az_3:
-  pcf_ert_ssl_cert:
-  pcf_ert_ssl_key:
   terraform_prefix:
   HAPROXY_FORWARD_TLS:
   HAPROXY_BACKEND_CA:
@@ -87,4 +87,8 @@ params:
   db_silk_username:
   db_silk_password:
   routing_disable_http:
+  ROUTING_CUSTOM_CA_CERTIFICATES:
+  ROUTING_TLS_TERMINATION:
   SECURITY_ACKNOWLEDGEMENT:
+  CREDHUB_ENCRYPTION_KEYS:
+  NETWORKING_POE_SSL_CERTS:
